@@ -24,7 +24,7 @@ services:
 
         ports: 
             - 8080:8080    
-        network:
+        networks:
             - expense
 
         container_name: backend
@@ -40,7 +40,7 @@ services:
         ports:
             - 80:80
 
-        network:
+        networks:
             - expense
 
         container_name: frontend
