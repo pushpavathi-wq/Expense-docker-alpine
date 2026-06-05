@@ -1,0 +1,53 @@
+# network is expense-custom network
+networks:
+    expense: {}
+
+volume:
+    mysql:
+
+# dokcer run -d --name mysql --network expense mysql:1.2.0
+services:
+    mysql:
+        image: pushpa4/mysql:1.2.0
+    networks:
+    - expense 
+
+    container_name: mysql
+    volumes: 
+    - mysql:/var/lib/mysql  
+
+
+# docker run -d --name backend --network expense -p 8080:8080 backend:1.3.2
+services:
+    backend: 
+        image: pushpa4/backend:1.3.2
+
+    ports: 
+    - 8080:8080    
+    network:
+    - expense
+
+    container_name: backend
+    depends_on: 
+    - mysql
+
+
+# docker run -d --name frontend --network expense -p 80:80 frontend:3.2
+services:
+    frontend:
+        image: pushpa4/frontend:3.2
+
+    ports:
+    - 80:80
+
+    network:
+    - expense
+
+    container_name: frontend
+    depends_on:
+    - backend     
+
+
+
+
+
