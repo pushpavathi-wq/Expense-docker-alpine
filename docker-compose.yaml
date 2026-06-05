@@ -2,7 +2,7 @@
 networks:
     expense: {}
 
-volume:
+volumes:
     mysql:
 
 # dokcer run -d --name mysql --network expense mysql:1.2.0
