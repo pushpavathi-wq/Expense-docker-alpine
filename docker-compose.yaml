@@ -8,7 +8,7 @@ volumes:
 # dokcer run -d --name mysql --network expense mysql:1.2.0
 services:
     mysql:
-        image: pushpa4/mysql:1.2.0
+        image: mysql:1.2.0
         networks:
             - expense 
 
@@ -20,7 +20,7 @@ services:
 # docker run -d --name backend --network expense -p 8080:8080 backend:1.3.2
 
     backend: 
-        image: pushpa4/backend:1.3.2
+        image: backend:1.3.2
 
         ports: 
             - 8080:8080    
@@ -35,7 +35,7 @@ services:
 # docker run -d --name frontend --network expense -p 80:80 frontend:3.2
 
     frontend:
-        image: pushpa4/frontend:3.2
+        image: frontend:3.2
 
         ports:
             - 80:80
